@@ -1,0 +1,94 @@
+@import 'animated-headlines';
+
+.navbar {
+	background-color: rgba(0,0,0,0.8);
+}
+
+#nav a {
+	color: $gray-500;
+}
+#nav .current a {
+	color: $white;
+	transition: color 150ms, background 150ms;
+}
+.mean-nav > .container > a {
+	color: $white;
+}
+
+#hero {	
+	background: #000 url('../img/hero-lion-bg.jpg');
+	background-position: right center;
+	width: 100%;
+  display: table;
+  margin: 0;
+  max-width: none;
+  height: 100vh;
+
+  @include media-breakpoint-down(xs) {
+  	padding-top: 100px;
+  }
+}
+
+.for-the-love-of-whitespace {
+	padding: 50px 0;
+}
+
+.alt-row {
+	background: #f9fafa;
+	border: 1px solid #e6e6e6;
+}
+
+.subtitle-ish {
+	margin-top: -8px;
+	color: $gray-600;
+}
+
+.absolutely-true-stat {
+	color: $white;
+	background-color: #677077;
+	box-shadow: 0px 3px 12px rgba(0,0,0,0.3);
+}
+
+// portfolio setup
+.gap {
+	display: inline-flex;
+	vertical-align: top;
+}
+
+.control {
+    position: relative;
+    display: inline-block;
+    padding: map-get($spacers, 1) map-get($spacers, 4);
+    background: transparent;
+    border: none;
+    color: $gray-600;
+    transition: background 300ms;
+}
+
+.control:hover {
+		color: $primary;
+		background: lighten($primary, 47%);
+}
+
+.mixitup-control-active,
+.mixitup-control-active:hover {
+	color: $white;
+  background: $primary;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+  transition: background 300ms box-shadow 300ms;
+}
+
+.control:focus,
+.mixitup-control-active:focus {
+	outline: none;
+}
+
+.sortable-portfolio > div > a > img {
+	box-shadow: 0px 3px 10px rgba(0,0,0,0.3);
+}
+
+footer {
+	background-color: $gray-800;
+	color: $white;
+	
+}
