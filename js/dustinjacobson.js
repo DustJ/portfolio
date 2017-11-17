@@ -22,7 +22,6 @@ $(document).ready(function(){
 });
 
 
-
 // Single Page Nav Scrolling
 $('#nav').onePageNav({
 	currentClass: 'current',
@@ -74,9 +73,10 @@ mixer.show()
     });
 
 
-
 //Animate on scroll
 new WOW().init();
+
+//Hero button links
 
 
 //Dates for the stats break
