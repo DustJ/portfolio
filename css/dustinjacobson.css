@@ -6976,6 +6976,13 @@ xpush
 .card a {
   border-radius: 0; }
 
+.btn {
+  padding: 10px 20px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.3); }
+
+.btn .fa {
+  padding-right: 8px; }
+
 footer {
   background-color: #343a40;
   color: #868e96;
