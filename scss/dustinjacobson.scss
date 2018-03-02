@@ -19,20 +19,55 @@
 }
 
 #hero {	
-	background: #000 url('../img/hero-lion-bg.jpg');
-	background-position: right center;
+	background: #005D86 url('../img/ice-berg-hero-bg-a.jpg');
+	background-position: 50% 0%;
+	padding-top: 50px;
+	background-repeat: no-repeat;
 	width: 100%;
   display: table;
   margin: 0;
   max-width: none;
   height: 100vh;
 
-  @include media-breakpoint-down(xs) {
-  	padding-top: 100px;
-  	background-position: 95% 53%;
+
+  @include media-breakpoint-up(xs) {
+  	padding-top: 50px;
+  	background-position: 50% 0px;
+	  background-size: cover;
   }
-  @include media-breakpoint-only(sm) {
-  	background-position: 84% 25%;
+  @include media-breakpoint-up(sm) {
+  	padding-top: 100px;
+  	background-position: 50% 100px;
+  	background-size: 120%;
+  }
+  @include media-breakpoint-up(md) {
+  	padding-top: 100px;
+  	background-position: 50% 100px;
+  	background-size: 160%;
+  }
+  @include media-breakpoint-up(lg) {
+  	padding-top: 100px;
+  	background-position: 50% 30px;
+  }
+  @include media-breakpoint-up(xl) {
+  	padding-top: 100px;
+  	background-position: 50% -130px;
+  }
+}
+
+.cd-headline {
+  font-size: 1.4rem;
+  line-height: 1.2;
+
+  @include media-breakpoint-up(sm) {
+    font-size: 2rem;
+  }
+  @include media-breakpoint-up(md) {
+    font-size: 2.5rem;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: 3.5rem;
+    font-weight: 400;
   }
 }
 
