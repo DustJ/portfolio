@@ -16,18 +16,18 @@ galleryImages.forEach((galleryImage) => {
 
     // Clone image into lightbox
     let clonedImage = galleryImage.querySelector('img').cloneNode()
-    clonedImage.className = ''
+    clonedImage.className = 'pinch-zoom'
     lightbox.innerHTML = ''
     lightbox.appendChild(clonedImage)
     
     // Reveal image and prevent page from scrolling
     lightbox.classList.toggle('lightbox--show')
-    docBody.style.overflow = 'hidden'
+    // docBody.style.overflowY = 'hidden'
 
     // clipPathOrigin(e)
     // setTimeout(() => {
     //   lightbox.classList.toggle('lightbox--show')
-    //   docBody.style.overflow = 'hidden'
+    //   docBody.style.overflow-y = 'hidden'
     // }, 200);
 
   })
@@ -37,5 +37,5 @@ galleryImages.forEach((galleryImage) => {
 lightbox.addEventListener('click', (e) => {
   // clipPathOrigin(e)
   lightbox.classList.toggle('lightbox--show')
-  docBody.style.overflow = 'scroll-x'
+  // docBody.style.overflowY = 'scroll'
 })
