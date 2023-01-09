@@ -1,71 +1,41 @@
-const menuButton = document.querySelector('#menu-button')
-const slider = document.querySelector('#menu-wrapper')
-const menuProjects = slider.querySelectorAll('.menu-item')
-const article = document.querySelector('article')
-const articleImages = article.querySelectorAll('img')
+const docBody = document.querySelector('body')
+const docRoot = document.querySelector(':root')
+const gallery = document.querySelector('.gallery__container')
+const galleryImages = gallery.querySelectorAll('.gallery__image')
 const lightbox = document.querySelector('#lightbox')
-let isDown = false
-let startX
-let scrollLeft
 
+// Clip-path origin point based on location clicked 
+// const clipPathOrigin = (e)=> {
+//   docRoot.style.setProperty('--clip-path-origin-x', `${e.pageX}px`)
+//   docRoot.style.setProperty('--clip-path-origin-y', `${e.pageY}px`)
+// }
 
+// Lightbox
+galleryImages.forEach((galleryImage) => {
+  galleryImage.addEventListener('click', (e) => {
 
-// 📃 Menu button
-const menuToggle = ()=> {
-  document.body.dataset.menu = document.body.dataset.menu === "true" ? "false" : "true"
-}
-
-menuButton.addEventListener('click', () => {
-  menuToggle()
-})
-
-// 👆 Click/Tap and drag
-slider.addEventListener('mousedown', (e) => {
-  isDown = true
-  startX = e.pageX - slider.offsetLeft
-  scrollLeft = slider.scrollLeft
-})
-
-slider.addEventListener('mouseleave', () => {
-  isDown = false
-})
-
-slider.addEventListener('mouseup', () => {
-  isDown = false
-})
-
-slider.addEventListener('mousemove', (e) => {
-  if(!isDown) return
-  e.preventDefault()
-  const x = e.pageX - slider.offsetLeft
-  const distanceDrug = (x - startX) * 1.5
-  slider.scrollLeft = scrollLeft - distanceDrug
-})
-
-// 😲 menu projects interaction
-menuProjects.forEach((menuProject) => {
-  menuProject.addEventListener('click', () => {
-    menuToggle()
-    articleSwap(menuProject.dataset.project)
-  })
-})
-
-const articleSwap = (projectName)=> {
-  article.insertAdjacentHTML('beforebegin', `<h3>${projectName}</h3>`)
-}
-
-
-// 🎨 Zoomable images
-lightbox.addEventListener('click', () => {
-  lightbox.classList.toggle('show')
-})
-
-articleImages.forEach((articleImage) => {
-  articleImage.addEventListener('click', () => {
-    let clone = articleImage.cloneNode()
-    clone.className = ''
+    // Clone image into lightbox
+    let clonedImage = galleryImage.querySelector('img').cloneNode()
+    clonedImage.className = ''
     lightbox.innerHTML = ''
-    lightbox.appendChild(clone)
-    lightbox.classList.toggle('show')
+    lightbox.appendChild(clonedImage)
+    
+    // Reveal image and prevent page from scrolling
+    lightbox.classList.toggle('lightbox--show')
+    docBody.style.overflow = 'hidden'
+
+    // clipPathOrigin(e)
+    // setTimeout(() => {
+    //   lightbox.classList.toggle('lightbox--show')
+    //   docBody.style.overflow = 'hidden'
+    // }, 200);
+
   })
+})
+
+// Hide image and allow page to scroll again
+lightbox.addEventListener('click', (e) => {
+  // clipPathOrigin(e)
+  lightbox.classList.toggle('lightbox--show')
+  docBody.style.overflow = 'scroll-x'
 })
