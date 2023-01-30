@@ -29,7 +29,7 @@
   --color-gradient-overlay-readability: linear-gradient(180deg, hsla(220, 27.3%, 97.8%, 0) 0%, hsla(220, 27.3%, 97.8%, 0.95) 80%)
 
   --content-min-width: 23.44rem
-  --content-max-width: 75rem
+  --content-max-width: 100rem
 
   --border: 1px solid var(--color-bg-light)
   --border-radius: 0.25rem
@@ -125,12 +125,10 @@ body
 
 // Content
 .personal-brand
-  align-content: top
-  display: grid
-  padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-md) var(--spacing-sm)
+  padding: 0 0 var(--spacing-sm) 0
 
   svg
-    max-width: 25rem
+    max-width: 15em
     width: 100%
 
 .gallery__container
@@ -195,18 +193,13 @@ body
     transition-duration: 0s !important
     transition-delay: 0s !important
 
-// Small device tweaks
-// @media only screen and (max-width: 375px)
-//   main
-//     padding-top: var(--spacing-lg)
-
 @media only screen and (min-width: 981px)
-  .personal-brand
-    padding: 0 var(--spacing-sm) var(--spacing-sm)
-    place-content: center
+  // .personal-brand
+  //   padding: 0 var(--spacing-sm) var(--spacing-sm)
+  //   place-content: center
 
   .gallery__container
-    grid-template-columns: repeat(2, 1fr)
+    grid-template-columns: repeat(3, 1fr)
 
     .gallery__image
       &:hover img
